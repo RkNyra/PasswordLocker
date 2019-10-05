@@ -16,6 +16,11 @@ class TestUser(unittest.TestCase):
     '''
     
     self.new_user = User('Stl','pswd1234')
+  
+  def tearDown(self):
+    '''
+    Method that cleans up after each test case has run
+    '''
     
     # ======== FIRST (User Class) TEST - CORRECT INSTANTIATION ====
   def test__init__(self):
@@ -48,7 +53,13 @@ class TestCredentials(unittest.TestCase):
     Method to create a new instance of the Credentials class before each test is run.
     '''
     self.new_credential = Credentials('twitter', 'SuperG', 'pwd333')
-    
+  
+  def tearDown(self):
+      '''
+    Method that cleans up after each test case has run
+    '''
+  
+  
     # ======== FIRST (Credentials Class) TEST - CORRECT INSTANTIATION ====
   def test__init__(self):
     '''
