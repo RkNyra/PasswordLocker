@@ -57,6 +57,16 @@ class TestCredentials(unittest.TestCase):
     self.assertEqual(self.new_credential.account, 'twitter')
     self.assertEqual(self.new_credential.acc_username, 'SuperG')
     self.assertEqual(self.new_credential.acc_password, 'pwd333')
+  
+    
+    #======= SECOND (Credentials Class) TEST - SAVING NEW CREDENTIALS
+  def test_save_new_credential(self):
+    '''
+    Test if the credential instance is saved into the credentials [] list.
+    '''
+    self.new_credential.save_new_credential() #saving the new credential instance/object
+    self.assertEqual(len(Credentials.credentials),1)
+    
 
 
 

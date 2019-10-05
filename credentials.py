@@ -9,3 +9,11 @@ class Credentials:
     self.account = account
     self.acc_username = acc_username
     self.acc_password = acc_password
+    
+  #============ save_new_credentials ===========
+  
+  def save_new_credential(self):
+    '''
+    Method that saves each new instance of credentials in the credentials [] list.
+    '''
+    Credentials.credentials.append(self)
