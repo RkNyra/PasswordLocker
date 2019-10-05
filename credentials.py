@@ -21,10 +21,23 @@ class Credentials:
     '''
     Credentials.credentials.append(self)
     
-  def generate_password(self, size=10, char=string.ascii_lowercase+string.digits):
+    
+  #========= generate new password =============
+    
+  def generate_password(self, size=7, character=string.ascii_lowercase+string.digits+string.punctuation):
     '''
-    Method to generate a 10 character password.
+    Method to generate a 7 character password.
     '''
-    generate_password = ''.join(random.choice(char) for _ in range(size))
+    generate_password = ''.join(random.choice(character) for _ in range(size))
     return generate_password
+  
+  
+  #============== deleting obsolete credentials ===========
+  
+  def delete_obsolete_credential(self):
+    '''
+    Method to delete an obsolete credential/delete a credential account that is no longer needed in the application.
+    '''
+    
+    Credentials.credentials.remove(self)
     

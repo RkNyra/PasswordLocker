@@ -70,16 +70,31 @@ class TestCredentials(unittest.TestCase):
     self.assertEqual(self.new_credential.acc_password, 'pwd333')
   
     
-    #======= SECOND (Credentials Class) TEST - SAVING NEW CREDENTIALS
+    # ======= SECOND (Credentials Class) TEST - SAVING NEW CREDENTIALS
   def test_save_new_credential(self):
     '''
     Test if the credential instance is saved into the credentials [] list.
     '''
     self.new_credential.save_new_credential() #saving the new credential instance/object
-    self.assertEqual(len(Credentials.credentials),1)
+    self.assertEqual(len(Credentials.credentials),2)
     
+    
+# to consider - test for auto/comp-generated password
+#             - test for custom/user-typed/chosen password
+#             - test for displaying/viewing all account credentials
 
-
+#=========== TEST - DELETING OBSOLETE CREDENTIAL(S) ===========  
+  def test_delete_obsolete_credential(self):
+    '''
+    method to test whether one can delete account credentials that are obsolete.
+    '''
+    self.new_credential.save_new_credential()
+    test_credential = Credentials('twitter','Chyle','chyle3377')
+    test_credential.save_new_credential()
+    self.new_credential.delete_obsolete_credential()
+    self.assertEqual(len(Credentials.credentials),1)
+  
+print(Credentials.credentials)
 
 
 
