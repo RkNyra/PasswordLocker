@@ -126,7 +126,7 @@ class TestCredentials(unittest.TestCase):
     test_credential2 = Credentials('Linked In','RKay', '1234Lknd')
     test_credential2.save_new_credential()
     
-    credential_exists = Credentials.credential_exist('Linked In')
+    credential_exists = Credentials.credential_exists('Linked In')
     
     self.assertTrue(credential_exists)
 

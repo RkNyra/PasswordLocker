@@ -34,7 +34,7 @@ class Credentials:
   
   
   
-  #=============== viewing accounts & creds created ===========
+  #============ viewing accounts & creds created ===========
   
   @classmethod
   def view_credentials(cls):
@@ -70,4 +70,24 @@ class Credentials:
     '''
     
     Credentials.credentials.remove(self)
+    
+  #======== check whether credential exists ==========
+  
+  @classmethod
+  def credential_exists(cls, account):
+    '''
+    Method to check whether a credential exist in the credentials list.
+    
+    Args:
+      account: account name to search whether a credential exists.
+    Returns:
+      Boolean: True or false depending on whether or not a credetial exists.
+    '''
+    
+    for credential in cls.credentials:
+      if credential.account == account:
+        return True
+    
+    return False
+  
     
