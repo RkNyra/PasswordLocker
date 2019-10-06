@@ -17,11 +17,17 @@ def save_new_user(user):
   '''
   User.save_new_user(user)
 
-#====== crete a credential =====
+#====== create a credential =====
 def create_credential(account,acc_username,acc_password):
   '''
-  function to create a new credential
+  Function to create a new credential
   '''
   new_credential = Credentials(account,acc_username,acc_password)
   return new_credential
 
+#===== save the newly created credential =======
+def save_new_credential(credential):
+  '''
+  Function to save credential
+  '''
+  Credentials.save_new_credential(credential)
