@@ -11,15 +11,17 @@ def create_pswdlckr_account(username,password):
   return new_user
 
 #===== save the newly created account ====
-def save_account(credential):
+def save_new_user(user):
   '''
   Function to save new pswdlckr user account
   '''
-  credential.save_account()
+  User.save_new_user(user)
 
-#===== delete an existing password locker user account =====
-def del_account(credential):
+#====== crete a credential =====
+def create_credential(account,acc_username,acc_password):
   '''
-  Function to delete a credential user account
+  function to create a new credential
   '''
-  credential.delete_account()
+  new_credential = Credentials(account,acc_username,acc_password)
+  return new_credential
+
