@@ -31,3 +31,12 @@ def save_new_credential(credential):
   Function to save credential
   '''
   Credentials.save_new_credential(credential)
+  
+#===== delete an obsolete credential =======
+def delete_obsolete_credential(credential):
+  '''
+  Function to delete an obsolete credential
+  '''
+  Credentials.delete_obsolete_credential(credential)
+  
+#======= finding a saved credential =======
