@@ -1,5 +1,6 @@
 import string
 import random
+import pyperclip
 
 class Credentials:
   '''
@@ -90,4 +91,16 @@ class Credentials:
     
     return False
   
+  
+  #======= copy password =============
+  
+  @classmethod
+  def copy_password(cls,account):
+      '''
+      Method to copy password
+      '''
+      credential = Credentials('Skype','Stl','pwd333')
+      credential.save_new_credential()
+      found_credential = Credentials.find_by_account_name('Skype')
+      pyperclip.copy(found_credential.acc_password)
     
