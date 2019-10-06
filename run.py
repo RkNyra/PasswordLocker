@@ -40,3 +40,8 @@ def delete_obsolete_credential(credential):
   Credentials.delete_obsolete_credential(credential)
   
 #======= finding a saved credential =======
+def find_credential(account):
+  '''
+  Function that finds a credential by its account name and returns the credential
+  '''
+  return Credentials.find_by_account_name(account)
