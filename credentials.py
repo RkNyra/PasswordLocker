@@ -44,6 +44,23 @@ class Credentials:
     for credential in cls.credentials:
      return credential 
    
+  #============== find creds by account name ==============
+  
+  @classmethod
+  def find_by_account_name(cls, account):
+    '''
+    Method that takes in the account name and returns the credential that matches that account name
+    
+    Args: 
+      account: account name to search for
+    Returns:
+      credential that matches that account
+    '''
+    
+    for credential in cls.credentials:
+      if credential.account == account:
+        return credential
+  
   
   #============== deleting obsolete credentials ===========
   

@@ -78,7 +78,7 @@ class TestCredentials(unittest.TestCase):
     
 # to consider - test for auto/comp-generated password
 #             - test for custom/user-typed/chosen password
-#             - test for finding acc creds by accountName.
+
 
 
 
