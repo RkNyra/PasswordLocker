@@ -13,6 +13,7 @@ class Credentials:
     self.acc_username = acc_username
     self.acc_password = acc_password
     
+    
   #============ save_new_credentials ===========
   
   def save_new_credential(self):
@@ -35,8 +36,14 @@ class Credentials:
   
   #=============== viewing accounts & creds created ===========
   
-  
-  
+  @classmethod
+  def view_credentials(cls):
+    '''
+    Method to view/display all the created and saved account credentials.
+    '''
+    for credential in cls.credentials:
+     return credential 
+   
   
   #============== deleting obsolete credentials ===========
   
