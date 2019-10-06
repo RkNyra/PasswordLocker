@@ -52,3 +52,13 @@ def check_existing_credential(account):
   Function that checks, by account name, whether a credential exists and return a Boolean.
   '''
   return Credentials.credential_exists(account)
+
+#======= view/display all credentials =======
+def display_credentials():
+  '''
+  Function that returns/displays all saved credentials.
+  '''
+  return Credentials.view_credentials()
+
+#======= MAIN() -  calling the defined functions =======
+
