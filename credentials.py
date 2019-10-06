@@ -32,6 +32,12 @@ class Credentials:
     return generate_password
   
   
+  
+  #=============== viewing accounts & creds created ===========
+  
+  
+  
+  
   #============== deleting obsolete credentials ===========
   
   def delete_obsolete_credential(self):

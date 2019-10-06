@@ -81,7 +81,21 @@ class TestCredentials(unittest.TestCase):
     
 # to consider - test for auto/comp-generated password
 #             - test for custom/user-typed/chosen password
-#             - test for displaying/viewing all account credentials
+#             - test for finding acc creds by accountName.
+
+
+#======= TEST - VIEWING SAVED ACC. CREDENTIALS =======
+  def test_view_credentials(self):
+    '''
+    Test whether one can view alll the account credentials that they have created/saved.
+    '''
+    self.new_credential.save_new_credential()
+    account_2 = Credentials('facebook', 'StlSuperG', 'pswd1234')
+    account_2.save_new_credential()
+    self.assertEqual(len(Credentials.view_credentials()),2)
+
+
+
 
 #=========== TEST - DELETING OBSOLETE CREDENTIAL(S) ===========  
   def test_delete_obsolete_credential(self):
