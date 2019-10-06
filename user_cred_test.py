@@ -1,4 +1,5 @@
-import unittest# Import the unittest module
+import unittest # Import the unittest module
+import pyperclip #  Import pyperclip module
 from user import User # Import the User class
 from credentials import Credentials # Import the Credentials class
 class TestUser(unittest.TestCase):
@@ -52,9 +53,10 @@ class TestCredentials(unittest.TestCase):
     self.new_credential = Credentials('twitter', 'SuperG', 'pwd333')
   
   def tearDown(self):
-      '''
+    '''
     Method that cleans up after each test case has run
     '''
+    Credentials.credentials = []
   
   
     # ======== FIRST (Credentials Class) TEST - CORRECT INSTANTIATION ====
@@ -73,7 +75,7 @@ class TestCredentials(unittest.TestCase):
     Test if the credential instance is saved into the credentials [] list.
     '''
     self.new_credential.save_new_credential() #saving the new credential instance/object
-    self.assertEqual(len(Credentials.credentials),6)
+    self.assertEqual(len(Credentials.credentials),1)
     
     
 # to consider - test for auto/comp-generated password
@@ -88,7 +90,7 @@ class TestCredentials(unittest.TestCase):
     self.new_credential.save_new_credential()
     account_2 = Credentials('facebook', 'StlSuperG', 'pswd1234')
     account_2.save_new_credential()
-    self.assertEqual(len(Credentials.credentials),8)
+    self.assertEqual(len(Credentials.credentials),2)
 
 
 #======= TEST - FIND CREDENTIALS BY ACCOUNT NAME =======
@@ -114,7 +116,7 @@ class TestCredentials(unittest.TestCase):
     test_credential.save_new_credential()
     
     self.new_credential.delete_obsolete_credential()
-    self.assertEqual(len(Credentials.credentials),3)
+    self.assertEqual(len(Credentials.credentials),1)
     
 
 #========= TEST - CHECK IF AN ACC. CREDS EXISTS===========
@@ -130,7 +132,16 @@ class TestCredentials(unittest.TestCase):
     
     self.assertTrue(credential_exists)
 
+#====== TEST - COPYING CREDENTIALS =====
+  def test_copy_password(self):
+    '''
+    Method to test that one is copying a password from a found credential.
+    '''
+    self.new_credential.save_new_credential()
+    Credentials.copy_password('Shay')
+
+    self.assertEqual(self.new_credential.acc_password, pyperclip.paste())
 
 if __name__ == '__main__':
-  unittest.main()
+    unittest.main()
 
