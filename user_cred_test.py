@@ -1,11 +1,9 @@
-import unittest # Import the unittest module
+import unittest# Import the unittest module
 from user import User # Import the User class
 from credentials import Credentials # Import the Credentials class
-
 class TestUser(unittest.TestCase):
   '''
   Test class that defines the test cases for the User class behavior.
-  
   Args:
       unittest.TestCase: TestCase class that helps in creating cases.
   '''
@@ -14,7 +12,6 @@ class TestUser(unittest.TestCase):
     '''
     Method to create a new instance of the User class before each test is run.
     '''
-    
     self.new_user = User('Stl','pswd1234')
   
   def tearDown(self):
@@ -76,7 +73,7 @@ class TestCredentials(unittest.TestCase):
     Test if the credential instance is saved into the credentials [] list.
     '''
     self.new_credential.save_new_credential() #saving the new credential instance/object
-    self.assertEqual(len(Credentials.credentials),2)
+    self.assertEqual(len(Credentials.credentials),4)
     
     
 # to consider - test for auto/comp-generated password
@@ -93,30 +90,35 @@ class TestCredentials(unittest.TestCase):
     self.new_credential.save_new_credential()
     account_2 = Credentials('facebook', 'StlSuperG', 'pswd1234')
     account_2.save_new_credential()
-    self.assertEqual(len(Credentials.credentials),4)
+    self.assertEqual(len(Credentials.credentials),6)
+
+
+#======= TEST - FIND CREDENTIALS BY ACCOUNT NAME =======
+  def test_find_by_account_name(self):
+    '''
+    Method to test whether one can find a saved credential by its account name and display the credential information.
+    '''
+    self.new_credential.save_new_credential()
+    test_credential = Credentials('instagram', 'RK', 'locked123')
+    test_credential.save_new_credential()
+    found_credential = Credentials.find_by_account_name('instagram')
+    self.assertEqual(found_credential.acc_username,test_credential.acc_username)
 
 
 
-
-#=========== TEST - DELETING OBSOLETE CREDENTIAL(S) ===========  
+#========== TEST - DELETING OBSOLETE CREDENTIAL(S) ===========  
   def test_delete_obsolete_credential(self):
     '''
-    method to test whether one can delete account credentials that are obsolete.
+    Method to test whether one can delete account credentials that are obsolete.
     '''
     self.new_credential.save_new_credential()
     test_credential = Credentials('twitter','Chyle','chyle3377')
     test_credential.save_new_credential()
+    
     self.new_credential.delete_obsolete_credential()
     self.assertEqual(len(Credentials.credentials),1)
   
 print(Credentials.credentials)
 
-
-
-
-
-
-
-    
 if __name__ == '__main__':
   unittest.main()
