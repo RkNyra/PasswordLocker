@@ -73,13 +73,11 @@ class TestCredentials(unittest.TestCase):
     Test if the credential instance is saved into the credentials [] list.
     '''
     self.new_credential.save_new_credential() #saving the new credential instance/object
-    self.assertEqual(len(Credentials.credentials),4)
+    self.assertEqual(len(Credentials.credentials),6)
     
     
 # to consider - test for auto/comp-generated password
 #             - test for custom/user-typed/chosen password
-
-
 
 
 #======= TEST - VIEWING SAVED ACC. CREDENTIALS =======
@@ -90,7 +88,7 @@ class TestCredentials(unittest.TestCase):
     self.new_credential.save_new_credential()
     account_2 = Credentials('facebook', 'StlSuperG', 'pswd1234')
     account_2.save_new_credential()
-    self.assertEqual(len(Credentials.credentials),6)
+    self.assertEqual(len(Credentials.credentials),8)
 
 
 #======= TEST - FIND CREDENTIALS BY ACCOUNT NAME =======
@@ -116,9 +114,23 @@ class TestCredentials(unittest.TestCase):
     test_credential.save_new_credential()
     
     self.new_credential.delete_obsolete_credential()
-    self.assertEqual(len(Credentials.credentials),1)
-  
-print(Credentials.credentials)
+    self.assertEqual(len(Credentials.credentials),3)
+    
+
+#========= TEST - CHECK IF AN ACC. CREDS EXISTS===========
+  def test_credential_exists(self):
+    '''
+    Method to check whether a given credential exists.
+    '''
+    self.new_credential.save_new_credential()
+    test_credential2 = Credentials('Linked In','RKay', '1234Lknd')
+    test_credential2.save_new_credential()
+    
+    credential_exists = Credentials.credential_exist('Linked In')
+    
+    self.assertTrue(credential_exists)
+
 
 if __name__ == '__main__':
   unittest.main()
+
