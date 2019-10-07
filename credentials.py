@@ -32,7 +32,7 @@ class Credentials:
     '''
     generate_password = ''.join(random.choice(character) for _ in range(size))
     return generate_password
-  
+  # print('...............THIS IS THE GENERATED PSWEED.....',generate_password)
   
   
   #============ viewing accounts & creds created ===========
