@@ -157,7 +157,8 @@ def main():
           
           short_code = input('Enter your choice: ')
           
-          if short_code == '1':                
+          if short_code == '1': 
+            while True:               
               print(' ')
               print('Create a new account credentials: ')
               print('-'*60)
@@ -190,24 +191,23 @@ def main():
                   Acc_Password: {acc_password}''')
               print(' ')
               
-              
-              while True:              
-                print('Do you want to create another credential?')
-                add_another_option = input('Select yes or no: ')
+                            
+              print('Do you want to create another credential?')
+              add_another_option = input('Select yes or no: ')
 
-                if add_another_option == 'yes':
-                  continue
-                
-                elif add_another_option == 'no':
-                  break
-                                                       
-                else:
-                  print('select a valid option')
-                  print('*'*55)
-                  
-                
+              if add_another_option == 'yes':
+                continue
+              
+              elif add_another_option == 'no':
+                break
+                                                      
               else:
-                print('Select a valid option')
+                print('select a valid option')
+                print('*'*55)
+                
+                
+            else:
+              print('Select a valid option')
           
                 
           elif short_code == '2':
