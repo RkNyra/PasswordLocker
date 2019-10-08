@@ -115,81 +115,13 @@ def main():
         print('='*60)
         print(' ')
         
-        # while True:
-        #   print('-'*60)
-        #   print('''Use these short codes:
-        #       cc - create new credential
-        #       dc - display credential
-        #       fc - find a credential
-        #       del - delete credential
-        #       copy - copy account password
-        #       x - exit the credential display mode''')
-        #   short_code = input('Type your choice: ').lower().strip()
-          
-        #   if short_code == 'cc':
-        #     while True:
-        #       print(' ')
-        #       print('Create a new account credentials by: ')
-        #       print('-'*70)
-        #       account = input('Enter the account name (e.g Linked In): ').strip()
-        #       acc_username = input('Enter your preferred username: ').strip
-        #       print('''Select one:
-        #             1. create your own passowrd
-        #             OR
-        #             2. have one generated for you ''')
-        #       selection = input(int())
-        #       if selection == 1:
-        #         acc_password = input('Enter your preferred password: ').strip
-        #       elif selection == 2:
-        #         acc_password = Credentials.generate_password
-        #       else:
-        #         print('Invalid. Please select a valic selection')
-        #       save_new_credential(create_credential(
-        #           account, acc_username, acc_password))
-        #       print(' ')
-        #       print(
-        #           f'New account & credentials created for: {account}, using username - {acc_username} and password - {password}.')
-        #       break
-        #   elif short_code == 'dc':
-        #     print(' ')
-        #     if display_credentials():
-        #       print('Your saved account credentials include: ')
-        #       print('-'*70)
-        #       print(display_credentials())
-        #     else:
-        #       print('You don\'t seem to have any saved credentials yet.')
-        #   elif short_code == 'fc':
-        #     search_account = input(
-        #         'Enter the account_name you wish to find/search-for: ')
-        #     if check_existing_credential(account):
-        #       search_account = find_credential(account)
-        #       print(
-        #           f'{search_account.account}, {search_account.acc_username}, {search_account.acc_password}')
-        #     else:
-        #       print('That account/account-credential does not exist')
-        #       print(' ')
-        #       print('-'*70)
-        #       print(find_credential(account))
-        #   elif short_code == 'del':
-        #     print('Delete a credential you no longer need: ')
-        #     print(' ')
-        #     print('-'*70)
-        #     chosen_for_delete = input('Select account to delete: ')
-        #     print(display_credentials())
-        #     print(delete_obsolete_credential(chosen_for_delete))
-        #   elif short_code == 'copy':
-        #     print(' ')
-        #     chosen_for_copy = input(
-        #         'Enter the account name for the credential password to copy: ')
-        #     copy_credential_password(chosen_for_copy)
-        #     print('')
-        #   elif short_code == 'x':
-        #     print('Thanks for your time! :) Goodbye...')
-        #     break
-        #   else:
-        #     print('I didn\'t quite catch that, please use the given short codes.')
-        #   break
-      
+        
+        
+        # insert the no option code here ...while true...
+        
+        
+        
+              
       else:
         print(' ')
         print('='*60)
@@ -230,10 +162,10 @@ def main():
               4 - Delete credential
               5 - Copy account password
               x - Exit the credential display mode''')
+          
           short_code = input('Enter your choice: ')
           
-          if short_code == '1':
-            while True:
+          if short_code == '1':                
               print(' ')
               print('Create a new account credentials: ')
               print('-'*60)
@@ -265,18 +197,27 @@ def main():
                   Acc_Username: {acc_username}
                   Acc_Password: {acc_password}''')
               print(' ')
-              # continue
               
-              print('Do you want to create another credential? Select: yes or no')
-              add_another_option = input('Select yes or no: ')
               
-              if add_another_option == 'yes':
-                continue
-              elif add_another_option == 'no':
-                break
+              while True:              
+                print('Do you want to create another credential?')
+                add_another_option = input('Select yes or no: ')
+
+                if add_another_option == 'yes':
+                  break
+                
+                elif add_another_option == 'no':
+                  break
+                                                       
+                else:
+                  print('select a valid option')
+                  print('*'*55)
+                  
+                
               else:
                 print('Select a valid option')
-              
+          
+                
           elif short_code == '2':
               
                 print('Your saved account credentials include: ')
@@ -318,7 +259,7 @@ def main():
             break
           else:
             print('I didn\'t quite catch that, please use the given short codes.')
-          break
+          
           
           
     elif user_exists !=True or status == 'no':
@@ -338,6 +279,7 @@ def main():
         password = input('Enter your password: ').strip()
     else:
       print('Invalid Selection: Please type in a valid selection: (Either yes or no).')
+      break
     
 if __name__ == '__main__':
   

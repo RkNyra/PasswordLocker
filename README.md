@@ -45,7 +45,6 @@ No known bugs
     2. pyperclip
 
 ### Support and contact details
-For pertinent comments, suggestions or questions, you may contact me at <a href="https://www.gmail.com/">rknyra@gmail.com</a>
 For pertinent comments, suggestions or questions, you may contact me at [Rk Nyra.](https://www.gmail.com/)
 
 ### License
