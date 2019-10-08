@@ -45,7 +45,7 @@ def delete_obsolete_credential(credential):
   '''
   Function to delete an obsolete credential
   '''
-  return Credentials.delete_obsolete_credential(credential)
+  credential.delete_obsolete_credential()
   
 #======= finding a saved credential =======
 def find_credential(account):
@@ -260,7 +260,7 @@ def main():
                 print(' ')
                 confirm = input('Confirm delete: yes/no  ')
                 if confirm == 'yes':
-                  delete_obsolete_credential(to_delete)
+                  delete_obsolete_credential(search_account)
                   print('Delete successful')
                   break
                 elif confirm == 'no':
