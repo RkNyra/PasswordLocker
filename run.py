@@ -265,7 +265,18 @@ def main():
                   Acc_Username: {acc_username}
                   Acc_Password: {acc_password}''')
               print(' ')
-              break
+              # continue
+              
+              print('Do you want to create another credential? Select: yes or no')
+              add_another_option = input('Select yes or no: ')
+              
+              if add_another_option == 'yes':
+                continue
+              elif add_another_option == 'no':
+                break
+              else:
+                print('Select a valid option')
+              
           elif short_code == '2':
               
                 print('Your saved account credentials include: ')
