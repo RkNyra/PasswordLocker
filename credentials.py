@@ -26,12 +26,11 @@ class Credentials:
     
   #========= generate new password =============
     
-  def generate_password(self, size=7, character=string.ascii_lowercase+string.digits+string.punctuation):
+  def generate_password(self, size=7, character=string.ascii_lowercase+string.digits):
     '''
     Method to generate a 7 character alphanumeric password.
     '''
     generated_password = ''.join(random.choice(character) for _ in range(size))
-    print('...............THIS IS THE AUTO-GEN-PASSWORD.....', generated_password)
     return generated_password
   
   

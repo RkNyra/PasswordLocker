@@ -238,7 +238,8 @@ def main():
               print('Create a new account credentials: ')
               print('-'*60)
               account = input('Enter the account name (e.g Gmail): ').strip()
-              acc_username = input('Enter your preferred username: ').strip
+              acc_username = input('Enter your preferred username: ').strip()
+              
               print(' ')
               print('For password, select either a or b:')
               print(' ')
@@ -250,10 +251,12 @@ def main():
               acc_password = selection
               if selection == 'a':
                 acc_password = input('Type your custom password: ')
+                
               elif selection == 'b':
                 acc_password = Credentials.generate_password(acc_password)
               else:
                 print('Please select a valid option')
+                
               save_new_credential(create_credential(account, acc_username, acc_password))
               print(acc_username)
               print(' ')
