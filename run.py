@@ -231,15 +231,15 @@ def main():
                 
           elif short_code == '3':
             search_account = input('Enter the account_name you wish to find/search-for: ')
-            if check_existing_credential(account):
-              search_account = find_credential(account)
+            if check_existing_credential(search_account):
+              found_account = find_credential(search_account)
               print(' ')
               print('Here are your saved credentials')
               print(
                   f'''
-                  Account: {search_account.account}
-                  Acc_Username: {search_account.acc_username}
-                  Acc_Password: {search_account.acc_password}
+                  Account: {found_account.account}
+                  Acc_Username: {found_account.acc_username}
+                  Acc_Password: {found_account.acc_password}
                   ''')
               print(' ')
               print(' ')
