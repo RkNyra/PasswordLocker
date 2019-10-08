@@ -45,7 +45,7 @@ def delete_obsolete_credential(credential):
   '''
   Function to delete an obsolete credential
   '''
-  Credentials.delete_obsolete_credential(credential)
+  return Credentials.delete_obsolete_credential(credential)
   
 #======= finding a saved credential =======
 def find_credential(account):
@@ -67,14 +67,6 @@ def display_credentials():
   Function that returns/displays all saved credentials.
   '''
   return Credentials.view_credentials()
-
-# #======= generating a password =======
-# def auto_gen_password():
-#   '''
-#   Functions that enables the auto-generation of passwords
-#   '''
-#   return Credentials.generate_password(self, size=7, character=string.ascii_lowercase+string.digits+string.punctuation)
-
 
 #======= copying a credential password ======
 def copy_credential_password(account):
@@ -204,7 +196,7 @@ def main():
                 add_another_option = input('Select yes or no: ')
 
                 if add_another_option == 'yes':
-                  break
+                  continue
                 
                 elif add_another_option == 'no':
                   break
@@ -222,32 +214,63 @@ def main():
               
                 print('Your saved account credentials include: ')
                 print('-'*60)
-                while True:
-                  print(display_credentials())
-                  break
+                print(' ')
+                
+                if display_credentials():
+                  
+                  for credential in display_credentials():
+                    print(
+                      f'''
+                      Account:{credential.account}
+                      Account_Username: {credential.acc_username}
+                      Account_Password: {credential.acc_password}
+                      ''')
                 else:
-                  print('You don\'t seem to have any saved credentials yet.')
-                  break
+                  print('Your don\'t seem to have any saved credentials yet')
+                
+                
           elif short_code == '3':
             search_account = input('Enter the account_name you wish to find/search-for: ')
             if check_existing_credential(account):
               search_account = find_credential(account)
+              print(' ')
+              print('Here are your saved credentials')
               print(
-                  f'{search_account.account}, {search_account.acc_username}, {search_account.acc_password}')
+                  f'''
+                  Account: {search_account.account}
+                  Acc_Username: {search_account.acc_username}
+                  Acc_Password: {search_account.acc_password}
+                  ''')
+              print(' ')
+              print(' ')
             else:
               print('That account/account-credential does not exist')
               print(' ')
               print('-'*60)
               print(find_credential(account))
+              
+              
           elif short_code == '4':
             while True:
-              print('Delete a credential you no longer need: ')
+              print('Delete a credential you no longer need')
               print(' ')
-              print('-'*60)
-              chosen_for_delete = input('Select account to delete: ')
-              print(display_credentials())
-              print(delete_obsolete_credential(chosen_for_delete))
-              break
+              to_delete = input('Search for the account to delete: ')
+              if check_existing_credential(to_delete):
+                search_account = find_credential(to_delete) 
+                print(' ')
+                confirm = input('Confirm delete: yes/no  ')
+                if confirm == 'yes':
+                  delete_obsolete_credential(to_delete)
+                  print('Delete successful')
+                  break
+                elif confirm == 'no':
+                  continue
+              else:
+                print('Credential does not exist')
+                print(' ')
+                break  
+                            
+            
           elif short_code == '5':
             print(' ')
             chosen_for_copy = input(
@@ -256,7 +279,10 @@ def main():
             print('')
           elif short_code == 'x':
             print('Thanks for your time! :) Goodbye...')
+            print('*'*60)
+            print(' ')
             break
+          
           else:
             print('I didn\'t quite catch that, please use the given short codes.')
           

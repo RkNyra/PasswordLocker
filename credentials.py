@@ -42,8 +42,7 @@ class Credentials:
     '''
     Method to view/display all the created and saved account credentials.
     '''
-    for credential in cls.credentials:
-     return credential 
+    return cls.credentials
    
   #============== find creds by account name ==============
   
@@ -70,7 +69,7 @@ class Credentials:
     Method to delete an obsolete credential/delete a credential account that is no longer needed in the application.
     '''
     
-    Credentials.credentials.remove(self)
+    self.credentials.remove(self)
     
   #======== check whether credential exists ==========
   
