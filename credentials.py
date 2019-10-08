@@ -13,7 +13,7 @@ class Credentials:
     self.account = account
     self.acc_username = acc_username
     self.acc_password = acc_password
-    
+  
     
   #============ save_new_credentials ===========
   
@@ -28,11 +28,12 @@ class Credentials:
     
   def generate_password(self, size=7, character=string.ascii_lowercase+string.digits+string.punctuation):
     '''
-    Method to generate a 7 character password.
+    Method to generate a 7 character alphanumeric password.
     '''
-    generate_password = ''.join(random.choice(character) for _ in range(size))
-    return generate_password
-  # print('...............THIS IS THE GENERATED PSWEED.....',generate_password)
+    generated_password = ''.join(random.choice(character) for _ in range(size))
+    print('...............THIS IS THE AUTO-GEN-PASSWORD.....', generated_password)
+    return generated_password
+  
   
   
   #============ viewing accounts & creds created ===========
